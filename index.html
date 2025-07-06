@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animated Button</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #1e1e2f;
+      font-family: Arial, sans-serif;
+    }
+
+    .animated-btn {
+      padding: 15px 40px;
+      font-size: 18px;
+      color: #fff;
+      background: #5e60ce;
+      border: 2px solid #5e60ce;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .animated-btn:hover {
+      background: #6930c3;
+      color: #fff;
+      border-color: #6930c3;
+      box-shadow: 0 0 15px #6930c3;
+      animation: none; /* Stop pulse on hover */
+    }
+
+    /* Optional: Add a subtle shine effect */
+    .animated-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+      transform: skewX(-20deg);
+    }
+
+    .animated-btn:hover::before {
+      animation: shine 0.75s forwards;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(94, 96, 206, 0.7);
+      }
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(94, 96, 206, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(94, 96, 206, 0);
+      }
+    }
+
+    @keyframes shine {
+      100% {
+        left: 125%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="animated-btn">Click Me</button>
+
+</body>
+</html>
